@@ -13,17 +13,13 @@ h = (1 / np.sqrt(2)) * np.array([
    1,  1,
    1, -1,
 ], dtype=np.complex128).reshape((2, 2))
-x = np.array([
-   0, 1,
+s = np.array([
    1, 0,
+   0, 1j,
 ], dtype=np.complex128).reshape((2, 2))
-y = np.array([
-    0,  1j,
-   -1j,  0,
-], dtype=np.complex128).reshape((2, 2))
-z = np.array([
-   1,  0,
-   0, -1,
+t = np.array([
+   1, 0,
+   0, np.exp(1j * np.pi / 4),
 ], dtype=np.complex128).reshape((2, 2))
 cnot = np.array([
    1, 0, 0, 0,
@@ -82,15 +78,12 @@ def main():
             case "h":
                 pos = i % qubits_number
                 state = _apply_q1_gate(state, h, pos)
-            case "x":
+            case "s":
                 pos = i % qubits_number
-                state = _apply_q1_gate(state, x, pos)
-            case "y":
+                state = _apply_q1_gate(state, s, pos)
+            case "t":
                 pos = i % qubits_number
-                state = _apply_q1_gate(state, y, pos)
-            case "z":
-                pos = i % qubits_number
-                state = _apply_q1_gate(state, z, pos)
+                state = _apply_q1_gate(state, t, pos)
             case "id":
                 pass
             case "cnot":
