@@ -18,6 +18,7 @@ if [[ $? -ne 0 ]]; then
 fi
 chmod +x "${HOME}/ttcli/src/entrypoint.sh"
 chmod +x "${HOME}/ttcli/src/hypertune.py"
+chmod +x "${HOME}/ttcli/src/plot.py"
 chmod +x "${HOME}/ttcli/ttcli"
 singularity remote use SylabsCloud && \
 singularity pull --dir "${HOME}/ttcli/ci" tt.sif library://iluchnikov/ttcli/ttcli:latest
