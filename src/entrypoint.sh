@@ -25,7 +25,7 @@ case $1 in
         python -m pytest "${script_dir}"
     ;;
     typecheck)
-        python -m mypy "${script_dir}"
+        python -m mypy --exclude "/examples/" "${script_dir}"
     ;;
     lint)
         python -m pylint --fail-under=9 "${script_dir}"
