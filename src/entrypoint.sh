@@ -13,6 +13,8 @@ COMMANDs:
   help:      shows this message;
   hypertune: runs TTOpt based hypertuner, a utility that optimizes hyperparameters
              of an arbitrary process. (run ttcli hypertune --help for more information);
+  plot:      plots different metrics obtained during hypertuning.
+             (run ttcli plot --help for more information);
 EOF
 }
 
@@ -33,6 +35,10 @@ case $1 in
     hypertune)
         shift
         "${script_dir}/hypertune.py" "$@"
+    ;;
+    plot)
+        shift
+        "${script_dir}/plot.py" "$@"
     ;;
     *)
         echo "Unknown option: '$1'"
