@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ttcli_dir="$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null
+entrypoint="${ttcli_dir}/src/entrypoint.sh"
+
+singularity exec "${ttcli_dir}/ci/tt.sif" "${entrypoint}" "$@"

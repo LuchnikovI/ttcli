@@ -1,0 +1,3 @@
+max_rank: 5
+sweeps_number: 6
+maxvol_threshold: 0.01

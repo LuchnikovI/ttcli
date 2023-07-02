@@ -1,0 +1,29 @@
+Hypertuner optimizes an arbitrary process by running it multiple times,
+adaptively searching for the best set of parameters. Process must take
+parameters as a `yaml` config via standard input and send the corresponding
+score value to the standard output. Hypertuner tries to maximize this value
+using so called TTOpt algorithm (see https://arxiv.org/abs/2205.00293).
+A `yaml` config that process takes as an input has the following form:
+    name_1: value_1
+    name_2: value_2
+         ...
+    name_k: value_k
+where `name_#` is an arbitrary string specifying a name of a parameter,
+`value_#` is anything that is accepted by the process.
+The Hypertuner itself also takes a `yaml` config as an input that has the
+following form:
+    max_rank: n
+    sweeps_number: m
+    maxvol_threshold: a
+    task_config:
+        name_1: [value_11, value_12, ...]
+        name_2: [value_21, value_22, ...]
+            ...
+        name_k: [value_k1, value_k2, ...]
+where
+    `max_rank`: is the maximal TT rank allowed, typically a number around 10,
+    `sweeps_number`: is the number of DMRG sweeps, typically a number less than 10,
+    `maxvol_threshold`: is an accuracy of MaxVol algorithm, typically a value around 0.01,
+    `task_config`: is the process config, where instead of a single value per name
+        all allowed values are listed. The hypertuner searches the best set of parameters
+        among these possible values.

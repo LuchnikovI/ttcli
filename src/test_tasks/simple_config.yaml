@@ -1,0 +1,7 @@
+max_rank: 5
+sweeps_number: 6
+maxvol_threshold: 0.01
+task_config:
+  param1: [1, 2, 3]
+  param2: [10, 20, 30]
+  param3: [100, 200, 300]
