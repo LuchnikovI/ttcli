@@ -5,11 +5,11 @@ This cli is a hyperoptimizer meaning that it tunes hyperparameters of a black bo
 
 # How to install
 
-Run an instalation script `./ci/install`. You do not need to have the rest of the code, only this script. Note, that the cli is based on [Apptainer](https://apptainer.org/) and install it if necessary into the `$HOME` dir.
+Run an installation script `./ci/install`. You do not need to have the rest of the code, only this script. Note, that the cli is based on [Apptainer](https://apptainer.org/) and install it if necessary into the `$HOME` dir.
 
 # How to uninstall
 
-All the artefacts after installation are located in `$HOME/ttcli`, simply `rm` this dirrectory. You also need to exclude the corresponding record from `.bashrc` which brings the tool into `PATH`. You may also delete Apptainer and the corresponding `.bashrc` record if you no longer need it.
+All the artefacts after installation are located in `$HOME/ttcli`, simply `rm` this directory. You also need to exclude the corresponding record from `.bashrc` which brings the tool into `PATH`. You may also delete Apptainer and the corresponding `.bashrc` record if you no longer need it.
 
 # How to use
 
@@ -68,3 +68,12 @@ ttcli hypertune \
     --path ./src/examples/1d_function.py
 ```
 would run maximization of a simple one-dimensional function
+
+# Some useful references
+
+Since this repo is created for a stream on 'How to wrap your research code into something that other people can use' here I attach some useful links that will be discussed during the stream:
+- (In Russian) http://stolyarov.info/books -- great books about software engineering in general. Have tons of useful information about Unix toolbox that must be used in research projects and much more;
+- https://clig.dev/ -- a guide on cli tools development;
+- https://apptainer.org/ -- a containerization system widely used in HPC;
+- https://hydra.cc/ -- a library for configuring complex apps;
+This is an incomplete list and I will be adding more stuff here gradually.
